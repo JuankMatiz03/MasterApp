@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-toolbar color="primary">      
+      <ion-title class="ion-text-center">Master App</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="spinner-container" *ngIf="isLoading">
+        <ion-spinner name="crescent"></ion-spinner>
+    </div>
+
+    <ion-card *ngIf="!isLoading">
+        <ion-card-header>
+          <ion-card-subtitle class="ion-text-center">Bienvenido</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="center-box">
+                <form [formGroup]="loginForm">    
+                    <ion-input
+                        type="text"
+                        fill="outline"
+                        label="Usuario"
+                        labelPlacement="floating"
+                        helperText="Ingrese un usuairo"
+                        errorText="Usuario invalido"
+                        maxlength="10"
+                        formControlName="user"
+                        ngModel
+                        text>
+                    </ion-input>
+                    <ion-input
+                        type="password"
+                        fill="outline"
+                        label="Contraseña"
+                        labelPlacement="floating"
+                        helperText="Ingrese su contraseña"
+                        errorText="Contraseña invalida"
+                        maxlength="10"
+                        formControlName="password"
+                        ngModel
+                        password>
+                    </ion-input>
+                </form>
+              </div><br>
+              <ion-item>
+                <ion-select label="Pais" placeholder="Selecciona tu pais">
+                  <ion-select-option *ngFor="let opcion of countriesRes" [value]="opcion">{{opcion?.name?.nativeName?.fra?.official}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-grid [fixed]="true">
+        <ion-row class="ion-text-center">
+            <ion-col>
+                <ion-button (click)="submitForm()">Inicia Sesion</ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button routerLink="/register" color="primary">Registrate</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

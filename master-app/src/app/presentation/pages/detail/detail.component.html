@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Detalle de Tarea</ion-title>
+    </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+    <ion-card>
+      <ion-card-header>
+        {{ task.title }}
+      </ion-card-header>
+      <ion-card-content>
+        <p>Descripción: {{ task }}</p>
+        <p>Fecha de Creación: 28/09</p>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
+  
